@@ -23,7 +23,10 @@ var/
 .installed.cfg
 *.egg
 
-# Virtual environment
+# Virtual environment folders
+.artifacts
+.env
+.venv
 venv/
 env/
 ENV/
@@ -32,7 +35,7 @@ ENV/
 pip-wheel-metadata/
 
 # Jupyter Notebook checkpoints
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # PyInstaller
 *.manifest
@@ -51,15 +54,11 @@ coverage.xml
 *.py,cover
 .hypothesis/
 
-# MyPy
+# Type checkers
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-# Pyre type checker
 .pyre/
-
-# Pytype
 .pytype/
 
 # IDEs and editors
@@ -68,9 +67,7 @@ dmypy.json
 *.sublime-project
 *.sublime-workspace
 
-# macOS
+# OS files
 .DS_Store
-
-# Windows
 Thumbs.db
 ehthumbs.db
