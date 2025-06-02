@@ -1,0 +1,10 @@
+[2025-06-02 11:24:25,481] INFO - Entered the data ingestion method or comp
+[2025-06-02 11:24:25,488] INFO - Read the dataset as dataframe
+[2025-06-02 11:24:25,495] INFO - Performed train-test split
+[2025-06-02 11:24:25,507] INFO - Train and Test datasets saved
+[2025-06-02 11:24:25,539] INFO - Read train and test data successfully.
+[2025-06-02 11:24:25,539] INFO - Obtaining preprocessing object...
+[2025-06-02 11:24:25,539] INFO - Numerical columns: ['reading score', 'writing score']
+[2025-06-02 11:24:25,539] INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+[2025-06-02 11:24:25,544] INFO - Applying preprocessing object on train and test data.
+[2025-06-02 11:24:25,572] INFO - Saving preprocessing object.
