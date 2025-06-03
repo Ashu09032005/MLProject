@@ -1,0 +1,4 @@
+[2025-06-03 14:27:44,920] INFO - Entered the data ingestion method or comp
+[2025-06-03 14:27:44,925] INFO - Read the dataset as dataframe
+[2025-06-03 14:27:44,934] INFO - Performed train-test split
+[2025-06-03 14:27:44,943] INFO - Train and Test datasets saved

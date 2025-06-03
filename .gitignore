@@ -24,7 +24,8 @@ var/
 *.egg
 
 # Virtual environment folders
-.artifacts
+.artifacts/
+.logs/
 .env
 .venv
 venv/
