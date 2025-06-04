@@ -1,113 +1,186 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Exam Performance Indicator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login {
+            width: 500px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
 
 <body>
     <div class="login">
         <h1>Student Exam Performance Indicator</h1>
-
         <form action="{{ url_for('predict_datapoint')}}" method="post">
-            <h1>
-                <legend>Student Exam Performance Prediction</legend>
-            </h1>
+            <legend>Student Exam Performance Prediction</legend>
+
             <div class="mb-3">
                 <label class="form-label">Gender</label>
-                <select class="form-control" name="gender" placeholder="Enter you Gender" required>
-                    <option class="placeholder" selected disabled value="">Select your Gender</option>
-                    <option value="male">
-                        Male
-                    </option>
-                    <option value="female">
-                        Female
+                <select class="form-control" name="gender" required>
+                    <option disabled value="">Select your Gender</option>
+                    <option value="male" {% if request.form.get('gender')=='male' %}selected{% endif %}>Male</option>
+                    <option value="female" {% if request.form.get('gender')=='female' %}selected{% endif %}>Female
                     </option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Race or Ethnicity</label>
-                <select class="form-control" name="ethnicity" placeholder="Enter you ethnicity" required>
-                    <option class="placeholder" selected disabled value="">Select Ethnicity</option>
-                    <option value="group A">
-                        Group A
+                <select class="form-control" name="ethnicity" required>
+                    <option disabled value="">Select Ethnicity</option>
+                    <option value="group A" {% if request.form.get('ethnicity')=='group A' %}selected{% endif %}>Group A
                     </option>
-                    <option value="group B">
-                        Group B
+                    <option value="group B" {% if request.form.get('ethnicity')=='group B' %}selected{% endif %}>Group B
                     </option>
-                    <option value="group C">
-                        Group C
+                    <option value="group C" {% if request.form.get('ethnicity')=='group C' %}selected{% endif %}>Group C
                     </option>
-                    <option value="group D">
-                        Group D
+                    <option value="group D" {% if request.form.get('ethnicity')=='group D' %}selected{% endif %}>Group D
                     </option>
-                    <option value="group E">
-                        Group E
+                    <option value="group E" {% if request.form.get('ethnicity')=='group E' %}selected{% endif %}>Group E
                     </option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Parental Level of Education</label>
-                <select class="form-control" name="parental_level_of_education" placeholder="Enter you Parent Education"
-                    required>
-                    <option class="placeholder" selected disabled value="">Select Parent Education</option>
-                    <option value="associate's degree">
-                        associate's degree
-                    </option>
-                    <option value="bachelor's degree">
-                        bachelor's degree
-                    </option>
-                    <option value="high school">
-                        high school
-                    </option>
-                    <option value="master's degree">
-                        master's degree
-                    </option>
-                    <option value="some college">
-                        some college
-                    </option>
-                    <option value="some high school">
-                        some high school
-                    </option>
+                <select class="form-control" name="parental_level_of_education" required>
+                    <option disabled value="">Select Parent Education</option>
+                    <option value="associate's degree" {% if
+                        request.form.get('parental_level_of_education')=="associate's degree" %}selected{% endif %}>
+                        Associate's Degree</option>
+                    <option value="bachelor's degree" {% if
+                        request.form.get('parental_level_of_education')=="bachelor's degree" %}selected{% endif %}>
+                        Bachelor's Degree</option>
+                    <option value="high school" {% if request.form.get('parental_level_of_education')=="high school"
+                        %}selected{% endif %}>High School</option>
+                    <option value="master's degree" {% if
+                        request.form.get('parental_level_of_education')=="master's degree" %}selected{% endif %}>
+                        Master's Degree</option>
+                    <option value="some college" {% if request.form.get('parental_level_of_education')=="some college"
+                        %}selected{% endif %}>Some College</option>
+                    <option value="some high school" {% if
+                        request.form.get('parental_level_of_education')=="some high school" %}selected{% endif %}>Some
+                        High School</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Lunch Type</label>
-                <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
-                    <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                    <option value="free/reduced">
-                        free/reduced
-                    </option>
-                    <option value="standard">
-                        standard
+                <select class="form-control" name="lunch" required>
+                    <option disabled value="">Select Lunch Type</option>
+                    <option value="free/reduced" {% if request.form.get('lunch')=='free/reduced' %}selected{% endif %}>
+                        Free/Reduced</option>
+                    <option value="standard" {% if request.form.get('lunch')=='standard' %}selected{% endif %}>Standard
                     </option>
                 </select>
             </div>
+
             <div class="mb-3">
-                <label class="form-label">Test preparation Course</label>
-                <select class="form-control" name="test_preparation_course" placeholder="Enter you Course" required>
-                    <option class="placeholder" selected disabled value="">Select Test_course</option>
-                    <option value="none">
-                        None
-                    </option>
-                    <option value="completed">
-                        Completed
-                    </option>
+                <label class="form-label">Test Preparation Course</label>
+                <select class="form-control" name="test_preparation_course" required>
+                    <option disabled value="">Select Test Course</option>
+                    <option value="none" {% if request.form.get('test_preparation_course')=='none' %}selected{% endif
+                        %}>None</option>
+                    <option value="completed" {% if request.form.get('test_preparation_course')=='completed'
+                        %}selected{% endif %}>Completed</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Writing Score out of 100</label>
                 <input class="form-control" type="number" name="reading_score" placeholder="Enter your Reading score"
-                    min='0' max='100' />
+                    min="0" max="100" required value="{{ request.form.get('reading_score', '') }}" />
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Reading Score out of 100</label>
-                <input class="form-control" type="number" name="writing_score" placeholder="Enter your Reading Score"
-                    min='0' max='100' />
+                <input class="form-control" type="number" name="writing_score" placeholder="Enter your Writing Score"
+                    min="0" max="100" required value="{{ request.form.get('writing_score', '') }}" />
             </div>
+
             <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
+                <input class="btn" type="submit" value="Predict your Maths Score" />
             </div>
         </form>
-        <h2>
-            THE prediction is {{results}}
-        </h2>
-
-        <body>
+        <h2>THE prediction is {{results}}</h2>
+    </div>
+</body>
 
 </html>
