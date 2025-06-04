@@ -2,7 +2,10 @@ import sys
 import logging
 
 def error_message_detail(error, error_detail: sys):
+    #error_detail.exc_info() returns a tuple (exc_type, exc_value, exc_traceback)
     _, _, exc_tb = error_detail.exc_info()
+    #exc_tb.tb_frame gives the current stack frame at the error point.
+    #f_code.co_filename is the filename of the Python script for that frame.
     file_name = exc_tb.tb_frame.f_code.co_filename
     error_message = "Error occurred in python script [{0}] line number [{1}] error message [{2}]".format(
         file_name, exc_tb.tb_lineno, str(error)
